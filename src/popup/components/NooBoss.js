@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styled, { injectGlobal } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import Navigator from './Navigator';
 import Overview from './Overview';
 import Extensions from './Extensions';
@@ -36,7 +36,7 @@ import {
   promisedSet,
 } from '../../utils';
 
-injectGlobal`
+export const GlobalStyle = createGlobalStyle`
 	body{
 		margin: 0px;
 	}
@@ -571,6 +571,7 @@ class NooBoss extends Component {
             this.onScrollChild.onScroll();
           }
         }}>
+        <GlobalStyle />
         <Navigator />
         {page}
         <SubWindow
