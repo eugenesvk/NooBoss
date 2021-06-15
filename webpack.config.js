@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const base = {
   cache: true,
   entry: {
@@ -18,7 +19,7 @@ const base = {
         loader: 'babel-loader',
         options: {
           cacheDirectory: true,
-          presets: ['react', 'es2015'],
+          presets: ['@babel/preset-react', '@babel/preset-env'],
           plugins: [
             'babel-plugin-lodash',
             'transform-object-rest-spread',
@@ -28,7 +29,6 @@ const base = {
               'transform-runtime',
               {
                 helpers: false,
-                polyfill: false,
                 regenerator: true,
                 moduleName: 'babel-runtime'
               }
@@ -39,13 +39,15 @@ const base = {
     ]
   },
   plugins: [
-    new CopyWebpackPlugin([
-      { from: './src/popup/popup.html' },
-      { from: './src/manifest.json' },
-      { from: './src/images', to: 'images' },
-      { from: './src/thirdParty', to: 'thirdParty' }
-    ])
-  ]
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: './src/popup/popup.html' },
+        { from: './src/manifest.json' },
+        { from: './src/images', to: 'images' },
+        { from: './src/thirdParty', to: 'thirdParty' },
+      ],
+    }),
+  ],
 };
 
 module.exports = (env) => {
@@ -53,9 +55,11 @@ module.exports = (env) => {
   const isProd = env.production;
   if (isProd) {
     base.plugins.push(
-      new webpack.optimize.UglifyJsPlugin({
-        compress: { warnings: false }
-      })
+      (optimization.minimizer = [
+        new TerserPlugin({
+          compress: { warnings: false },
+        }),
+      ])
     );
 
     base.plugins.push(
