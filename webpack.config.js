@@ -55,13 +55,16 @@ module.exports = (env) => {
   const isProd = env.production;
   base.mode = isProd ? 'production' : 'development';
   if (isProd) {
-    base.plugins.push(
-      (optimization.minimizer = [
+    base.optimization = {
+      minimize: true,
+      minimizer: [
         new TerserPlugin({
-          compress: { warnings: false },
+          terserOptions: {
+            compress: { warnings: false },
+          },
         }),
-      ])
-    );
+      ],
+    };
 
     base.plugins.push(
       new webpack.DefinePlugin({
