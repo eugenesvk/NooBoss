@@ -89,7 +89,7 @@ class Selector extends Component {
       filterName: '',
       filterType: 'all',
       stateHistoryList: [],
-      redoStateHistoryList: []
+      redoStateHistoryList: [],
     };
   }
 
@@ -103,7 +103,7 @@ class Selector extends Component {
           {
             job: 'extensionToggle',
             id: extension.id,
-            enabled: !extension.enabled
+            enabled: !extension.enabled,
           },
           () => {}
         );
@@ -122,7 +122,7 @@ class Selector extends Component {
           {
             job: 'extensionToggle',
             id: extension.id,
-            enable: !extension.enabled
+            enable: !extension.enabled,
           },
           () => {}
         );
@@ -143,7 +143,7 @@ class Selector extends Component {
             );
             sendMessage({
               job: 'groupListUpdate',
-              groupList: stateHistory.groupList
+              groupList: stateHistory.groupList,
             });
             break;
           default:
@@ -151,7 +151,7 @@ class Selector extends Component {
             sendMessage({
               job: 'extensionToggle',
               id,
-              enabled: stateHistory[id]
+              enabled: stateHistory[id],
             });
         }
       });
@@ -172,7 +172,7 @@ class Selector extends Component {
             );
             sendMessage({
               job: 'groupListUpdate',
-              groupList: redoStateHistory.groupList
+              groupList: redoStateHistory.groupList,
             });
             break;
           default:
@@ -180,7 +180,7 @@ class Selector extends Component {
             sendMessage({
               job: 'extensionToggle',
               id,
-              enabled: redoStateHistory[id]
+              enabled: redoStateHistory[id],
             });
         }
       });

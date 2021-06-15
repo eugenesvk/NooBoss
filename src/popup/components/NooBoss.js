@@ -17,7 +17,7 @@ import {
   updateLanguage,
   optionsUpdateThemeMainColor,
   optionsUpdateThemeSubColor,
-  optionsUpdateZoom
+  optionsUpdateZoom,
 } from '../actions';
 import {
   promisedGet,
@@ -33,7 +33,7 @@ import {
   oldGet,
   generateRGBAString,
   getLanguage,
-  promisedSet
+  promisedSet,
 } from '../../utils';
 
 injectGlobal`
@@ -216,7 +216,7 @@ const NooBossDiv = styled.div`
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    ...state
+    ...state,
   };
 };
 
@@ -271,7 +271,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       await props.loadPrevState();
       await props.updateMainLocationIfOptions(props);
       await props.initialRequiredOptions();
-    }
+    },
   };
 };
 
@@ -283,7 +283,7 @@ class NooBoss extends Component {
       getGroupList: this.getGroupList.bind(this),
       getAutoStateRuleList: this.getAutoStateRuleList.bind(this),
       themeMainColor: generateRGBAString(this.props.options.themeMainColor),
-      themeSubColor: generateRGBAString(this.props.options.themeSubColor)
+      themeSubColor: generateRGBAString(this.props.options.themeSubColor),
     };
     oldGet(
       'joinCommunity',
@@ -300,7 +300,7 @@ class NooBoss extends Component {
       autoStateRuleList: [],
       extensionInfoWeb: {},
       historyRecordList: [],
-      viewMode: 'tile'
+      viewMode: 'tile',
     };
     this.updateSubWindow = this.props.updateSubWindow.bind(this);
     this.getHistoryRecordList = this.getHistoryRecordList.bind(this);
@@ -364,7 +364,7 @@ class NooBoss extends Component {
       type: 'POST',
       data: JSON.stringify({ extensionList }),
       contentType: 'application/json',
-      url: 'https://ainoob.com/api/nooboss/extensionInfo'
+      url: 'https://ainoob.com/api/nooboss/extensionInfo',
     });
     data = JSON.parse(data).extensionInfoList;
     this.setState((prevState) => {

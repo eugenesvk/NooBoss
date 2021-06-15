@@ -2,12 +2,8 @@
 
 export const defaultValues = {
   userId:
-    Math.random()
-      .toString(36)
-      .slice(2, 19) +
-    Math.random()
-      .toString(36)
-      .slice(2, 19),
+    Math.random().toString(36).slice(2, 19) +
+    Math.random().toString(36).slice(2, 19),
   notifyStateChange: true,
   notifyInstallation: true,
   notifyRemoval: true,
@@ -32,9 +28,9 @@ export const defaultValues = {
   mainColor: { r: 0, g: 0, b: 0, a: 1 },
   subColor: { r: 0, g: 0, b: 0, a: 1 },
   extensions: true,
-  userscripts: true
+  userscripts: true,
 };
 
 export const constantValues = {
-  version: chrome.runtime.getManifest().version
+  version: chrome.runtime.getManifest().version,
 };

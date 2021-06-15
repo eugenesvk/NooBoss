@@ -6,7 +6,7 @@ import {
   getSquareImg,
   sendMessage,
   fileToDataURL,
-  promisedSetDB
+  promisedSetDB,
 } from '../../../utils';
 import Selector from '../Selector';
 

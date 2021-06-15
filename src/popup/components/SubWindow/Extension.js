@@ -7,7 +7,7 @@ import {
   Removy,
   Optioney,
   Chromey,
-  Addy
+  Addy,
 } from '../../../icons';
 import {
   copy,
@@ -17,7 +17,7 @@ import {
   GL,
   capFirst,
   getString,
-  sendMessage
+  sendMessage,
 } from '../../../utils';
 import TimeAgo from 'timeago-react';
 
@@ -149,7 +149,7 @@ class Extension extends Component {
       extensionWeb: { tags: {}, upVotes: 0, downVotes: 0 },
       tags: {},
       joinCommunity: false,
-      userId: 'notBelloed'
+      userId: 'notBelloed',
     };
   }
   async componentDidMount() {
@@ -164,7 +164,7 @@ class Extension extends Component {
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({ userId, appId: id }),
-        url: 'https://ainoob.com/api/nooboss/app'
+        url: 'https://ainoob.com/api/nooboss/app',
       });
       data = JSON.parse(data);
       const tags = {};
@@ -180,7 +180,7 @@ class Extension extends Component {
           getChromeVersion() +
           '&x=id%3D' +
           id +
-          '%26installsource%3Dondemand%26uc'
+          '%26installsource%3Dondemand%26uc',
       });
       const crxUrl = data.match('codebase="([^ ]*)"')[1];
       const crxVersion = data.slice(20).match('version="([^ ]*)"')[1];
@@ -209,13 +209,13 @@ class Extension extends Component {
       userId: this.state.userId,
       appId,
       tag,
-      action
+      action,
     };
     await ajax({
       type: 'POST',
       url: 'https://ainoob.com/api/nooboss/reco/app/tag',
       contentType: 'application/json',
-      data: JSON.stringify(reco)
+      data: JSON.stringify(reco),
     });
     this.setState((prevState) => {
       if (!prevState.extensionWeb) {

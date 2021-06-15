@@ -5,18 +5,18 @@ const base = {
   cache: true,
   entry: {
     popup: './src/popup/index.js',
-    background: './src/background/index.js'
+    background: './src/background/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].js'
+    filename: 'js/[name].js',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
-        query: {
+        options: {
           cacheDirectory: true,
           presets: ['react', 'es2015'],
           plugins: [
@@ -60,7 +60,7 @@ module.exports = (env) => {
 
     base.plugins.push(
       new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify('production')
+        'process.env.NODE_ENV': JSON.stringify('production'),
       })
     );
   } else {

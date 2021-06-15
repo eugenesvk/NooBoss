@@ -5,7 +5,7 @@ import {
   promisedSetDB,
   promisedGetDB,
   sendMessage,
-  promisedSet
+  promisedSet,
 } from '../utils';
 
 export default (NooBoss) => {
@@ -77,7 +77,7 @@ export default (NooBoss) => {
           ...oldInfo,
           ...appInfo,
           ...extraInfo,
-          ...postset
+          ...postset,
         };
         NooBoss.Extensions.apps[newInfo.id] = newInfo;
         await promisedSetDB(appInfo.id, newInfo);
@@ -140,12 +140,8 @@ export default (NooBoss) => {
       const newGroup = JSON.parse(JSON.stringify(group));
       newGroup.id =
         'NooBoss-Group-' +
-        Math.random()
-          .toString(36)
-          .slice(2, 19) +
-        Math.random()
-          .toString(36)
-          .slice(2, 19);
+        Math.random().toString(36).slice(2, 19) +
+        Math.random().toString(36).slice(2, 19);
       NooBoss.Extensions.groupList.push(newGroup);
       sendMessage({ job: 'groupCopied', newGroup });
       await promisedSet('groupList', NooBoss.Extensions.groupList);
@@ -176,17 +172,13 @@ export default (NooBoss) => {
           appList: [],
           id:
             'NooBoss-Group-' +
-            Math.random()
-              .toString(36)
-              .slice(2, 19) +
-            Math.random()
-              .toString(36)
-              .slice(2, 19),
-          name: 'Group x'
+            Math.random().toString(36).slice(2, 19) +
+            Math.random().toString(36).slice(2, 19),
+          name: 'Group x',
         });
         sendMessage({
           job: 'groupListUpdated',
-          groupList: NooBoss.Extensions.groupList
+          groupList: NooBoss.Extensions.groupList,
         });
         await promisedSet('groupList', NooBoss.Extensions.groupList);
         resolve();
@@ -232,6 +224,6 @@ export default (NooBoss) => {
     openWebStore: (id) => {
       const url = 'https://chrome.google.com/webstore/detail/' + id;
       browser.tabs.create({ url });
-    }
+    },
   };
 };

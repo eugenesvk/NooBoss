@@ -18,7 +18,7 @@ export default (NooBoss) => {
           if (NooBoss.Extensions.apps[appInfo.id]) {
             event = 'update';
             await NooBoss.Extensions.updateAppInfoById(appInfo.id, {
-              lastUpdateDate: new Date().getTime()
+              lastUpdateDate: new Date().getTime(),
             });
           }
           await NooBoss.Extensions.updateAppInfo(appInfo);
@@ -50,7 +50,7 @@ export default (NooBoss) => {
             );
           }
           await NooBoss.Extensions.updateAppInfoById(id, {
-            uninstalledDate: new Date().getTime()
+            uninstalledDate: new Date().getTime(),
           });
           NooBoss.Extensions.delete(id);
         });
@@ -109,6 +109,6 @@ export default (NooBoss) => {
         });
         resolve();
       });
-    }
+    },
   };
 };

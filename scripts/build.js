@@ -21,7 +21,7 @@ const generateLocale = (language, toLanguage) => {
       YAML.parse(fs.readFileSync('./src/_locales/' + language + '.yml', 'utf8'))
     ),
     {
-      encoding: 'utf8'
+      encoding: 'utf8',
     },
     () => {
       console.log('Generated ' + toLanguage + ' locale');

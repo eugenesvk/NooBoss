@@ -19,7 +19,7 @@ const noobossReducer = (state = {}, action) => {
     subWindow: subWindow(state.subWindow, action),
     overview: overview(state.overview, action),
     options: options(state.options, action),
-    autoState: autoState(state.autoState, action)
+    autoState: autoState(state.autoState, action),
   };
 
   return state;

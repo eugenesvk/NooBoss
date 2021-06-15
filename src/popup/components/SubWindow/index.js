@@ -34,7 +34,7 @@ const SubWindowDiv = styled.div`
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
-    subWindow: state.subWindow
+    subWindow: state.subWindow,
   };
 };
 
@@ -43,7 +43,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     ...ownProps,
     updateSubLocation: (mainLocation, subLocation) => {
       dispatch(updateSubLocation(mainLocation, subLocation));
-    }
+    },
   };
 };
 

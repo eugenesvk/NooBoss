@@ -14,61 +14,61 @@ const UPDATE_AUTO_STATE_RULE = 'UPDATE_AUTO_STATE_RULE';
 
 export const updateState = (state) => ({
   type: UPDATE_STATE,
-  state
+  state,
 });
 
 export const updateMainLocation = (mainLocation) => ({
   type: UPDATE_MAIN_LOCATION,
-  mainLocation
+  mainLocation,
 });
 
 export const updateSubLocation = (mainLocation, subLocation) => ({
   type: UPDATE_SUB_LOCATION,
   mainLocation,
-  subLocation
+  subLocation,
 });
 
 export const updateSubWindow = (display, id) => ({
   type: UPDATE_SUB_WINDOW,
   display,
-  id
+  id,
 });
 
 export const updateLanguage = (language) => ({
   type: UPDATE_LANGUAGE,
-  language
+  language,
 });
 
 export const overviewUpdateBello = (bello) => ({
   type: OVERVIEW_UPDATE_BELLO,
-  bello
+  bello,
 });
 
 export const overviewToggleRecommendExtensions = () => ({
-  type: OVERVIEW_TOGGLE_RECOMMEND_EXTENSIONS
+  type: OVERVIEW_TOGGLE_RECOMMEND_EXTENSIONS,
 });
 
 export const optionsUpdateThemeMainColor = (color) => ({
   type: OPTIONS_UPDATE_THEME_MAIN_COLOR,
-  color
+  color,
 });
 
 export const optionsUpdateThemeSubColor = (color) => ({
   type: OPTIONS_UPDATE_THEME_SUB_COLOR,
-  color
+  color,
 });
 
 export const optionsUpdateZoom = (zoom) => ({
   type: OPTIONS_UPDATE_ZOOM,
-  zoom
+  zoom,
 });
 
 export const optionsToggleDisplay = (name) => ({
   type: OPTIONS_TOGGLE_DISPLAY,
-  name
+  name,
 });
 
 export const updateAutoStateRule = (rule) => ({
   type: UPDATE_AUTO_STATE_RULE,
-  rule
+  rule,
 });

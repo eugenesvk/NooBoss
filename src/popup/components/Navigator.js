@@ -89,7 +89,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
     location: state.location,
-    navigator: state.navigator
+    navigator: state.navigator,
   };
 };
 
@@ -101,7 +101,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     updateSubLocation: (mainLocation, subLocation) => {
       dispatch(updateSubLocation(mainLocation, subLocation));
-    }
+    },
   };
 };
 
@@ -114,8 +114,8 @@ class Navigator extends Component {
         { main: 'extensions', sub: ['manage', 'autoState'] },
         { main: 'history' },
         { main: 'options' },
-        { main: 'about' }
-      ]
+        { main: 'about' },
+      ],
     };
   }
   getLink(link, index, isActive) {

@@ -49,6 +49,6 @@ export default (NooBoss) => {
           resolve();
         });
       });
-    }
+    },
   };
 };

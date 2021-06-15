@@ -15,12 +15,12 @@ import {
   GL,
   notify,
   sendMessage,
-  promisedGetDB
+  promisedGetDB,
 } from '../utils';
 
 const NooBoss = {
   defaultValues,
-  constantValues
+  constantValues,
 };
 window.NooBoss = NooBoss;
 window.browser = chrome;
@@ -53,7 +53,7 @@ NooBoss.initiate = async () => {
           NooBoss.Bello.bello({
             category: 'Options',
             action: message.job,
-            label: message.key
+            label: message.key,
           });
           break;
         case 'reset':
@@ -104,7 +104,7 @@ NooBoss.initiate = async () => {
           NooBoss.Bello.bello({
             category: 'autoState',
             action: message.action,
-            id: message.id
+            id: message.id,
           });
           break;
         case 'extensionToggle':
@@ -112,7 +112,7 @@ NooBoss.initiate = async () => {
           NooBoss.Bello.bello({
             category: 'manage',
             action: message.job,
-            id: message.id
+            id: message.id,
           });
           break;
         case 'extensionOptions':
@@ -120,7 +120,7 @@ NooBoss.initiate = async () => {
           NooBoss.Bello.bello({
             category: 'manage',
             action: message.job,
-            id: message.id
+            id: message.id,
           });
           break;
         case 'extensionRemove':
@@ -128,7 +128,7 @@ NooBoss.initiate = async () => {
           NooBoss.Bello.bello({
             category: 'manage',
             action: message.job,
-            id: message.id
+            id: message.id,
           });
           break;
         case 'extensionBrowserOptions':
@@ -136,7 +136,7 @@ NooBoss.initiate = async () => {
           NooBoss.Bello.bello({
             category: 'manage',
             action: message.job,
-            id: message.id
+            id: message.id,
           });
           break;
         case 'groupToggle':
@@ -167,7 +167,7 @@ NooBoss.initiate = async () => {
           NooBoss.Bello.bello({
             category: 'manage',
             action: message.job,
-            id: message.id
+            id: message.id,
           });
           break;
         case 'openManifest':
@@ -175,7 +175,7 @@ NooBoss.initiate = async () => {
           NooBoss.Bello.bello({
             category: 'manage',
             action: message.job,
-            id: message.id
+            id: message.id,
           });
           break;
         case 'openWebStore':
@@ -183,7 +183,7 @@ NooBoss.initiate = async () => {
           NooBoss.Bello.bello({
             category: 'manage',
             action: message.job,
-            id: message.id
+            id: message.id,
           });
           break;
         case 'notify':

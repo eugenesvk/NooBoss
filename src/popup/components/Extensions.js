@@ -42,13 +42,13 @@ const ExtensionsDiv = styled.div`
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
-    location: state.location
+    location: state.location,
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    ...ownProps
+    ...ownProps,
   };
 };
 

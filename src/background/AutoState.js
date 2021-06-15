@@ -5,7 +5,7 @@ import {
   notify,
   isOn,
   GL,
-  sendMessage
+  sendMessage,
 } from '../utils';
 
 export default (NooBoss) => {
@@ -45,7 +45,7 @@ export default (NooBoss) => {
         NooBoss.AutoState.rules = rules;
         sendMessage({
           job: 'autoStateRulesUpdated',
-          rules: NooBoss.AutoState.rules
+          rules: NooBoss.AutoState.rules,
         });
         if (rules != undefined) {
           await promisedSet('autoStateRules', rules);
@@ -107,7 +107,7 @@ export default (NooBoss) => {
                 nextPhases[id] = {
                   enabled: true,
                   tabId,
-                  ruleId: i
+                  ruleId: i,
                 };
                 enableOnlys[id] = true;
               });
@@ -115,7 +115,7 @@ export default (NooBoss) => {
               affectedIds.map((id) => {
                 nextPhases[id] = {
                   enabled: enableOnlys[id] || false,
-                  ruleId: i
+                  ruleId: i,
                 };
               });
             }
@@ -126,7 +126,7 @@ export default (NooBoss) => {
                 nextPhases[id] = {
                   enabled: false,
                   tabId,
-                  ruleId: i
+                  ruleId: i,
                 };
                 disableOnlys[id] = true;
               });
@@ -134,7 +134,7 @@ export default (NooBoss) => {
               affectedIds.map((id) => {
                 nextPhases[id] = {
                   enabled: !disableOnlys[id] && true,
-                  ruleId: i
+                  ruleId: i,
                 };
               });
             }
@@ -145,7 +145,7 @@ export default (NooBoss) => {
                 nextPhases[id] = {
                   enabled: true,
                   tabId,
-                  ruleId: i
+                  ruleId: i,
                 };
               });
             }
@@ -155,7 +155,7 @@ export default (NooBoss) => {
               affectedIds.map((id) => {
                 nextPhases[id] = {
                   enabled: false,
-                  ruleId: i
+                  ruleId: i,
                 };
               });
             }
@@ -213,6 +213,6 @@ export default (NooBoss) => {
           resolve();
         }
       });
-    }
+    },
   };
 };

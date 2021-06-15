@@ -4,81 +4,85 @@ import { sendMessage } from '../../utils';
 import styled, { css } from 'styled-components';
 
 const ExtensionBriefDiv = styled.div`
-	box-shadow: ${() => shared.themeMainColor} 0px 0px 0px 1px;
-	&:hover{
-		box-shadow: ${() => shared.themeMainColor} 0px 0px 13px;
-	}
-	background-color: ${(p) => (p.disabled ? '#0000001a' : '')};
-	width: 76px;
-	height: 76px;
-	padding: 20px;
-	margin-left: 1px;
-	margin-top: 1px;
-	position: relative;
-	padding: 20px;
-	float: left;
-	overflow: hidden;
-	.shadow{
-		display: none;
-	}
-	.extensionBrief{
-		margin-top: -8px;
-		width: 100%;
-		height: 100%;
-		position: relative;
-		.extensionIcon, .nameFront, .extensionInfo{
-			backface-visibility: hidden;
-			transition: transform 0.111s;
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
-		}
-		.extensionIcon{
-			width: 80%;
-			margin-left: 10%;
-			margin-top: 6px;
-		}
-		.nameFront{
-			top: 80px;
-			height: 20px;
-			overflow: hidden;
-			text-align: center;
-		}
-		.extensionIcon, .nameFront{
-			transform: rotate(0deg);
-		}
-		.extensionInfo{
-			text-align: center;
-			transform: rotateY(180deg);
-			#extensionName{
-				color: ${() => shared.themeMainColor};
-				cursor: pointer;
-				width: 118px;
-				margin-left: -20px;
-				height: 64px;
-				display: block;
-			}
-		}
-	}
-	&:hover{
-		.extensionBrief{
-			.extensionIcon, .nameFront{
-				transform: rotateY(180deg);
-			}
-			.extensionInfo{
-				transform: rotateY(0deg);
-			}
-		}
-	}
-	${(props) =>
+  box-shadow: ${() => shared.themeMainColor} 0px 0px 0px 1px;
+  &:hover {
+    box-shadow: ${() => shared.themeMainColor} 0px 0px 13px;
+  }
+  background-color: ${(p) => (p.disabled ? '#0000001a' : '')};
+  width: 76px;
+  height: 76px;
+  padding: 20px;
+  margin-left: 1px;
+  margin-top: 1px;
+  position: relative;
+  padding: 20px;
+  float: left;
+  overflow: hidden;
+  .shadow {
+    display: none;
+  }
+  .extensionBrief {
+    margin-top: -8px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .extensionIcon,
+    .nameFront,
+    .extensionInfo {
+      backface-visibility: hidden;
+      transition: transform 0.111s;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+    .extensionIcon {
+      width: 80%;
+      margin-left: 10%;
+      margin-top: 6px;
+    }
+    .nameFront {
+      top: 80px;
+      height: 20px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .extensionIcon,
+    .nameFront {
+      transform: rotate(0deg);
+    }
+    .extensionInfo {
+      text-align: center;
+      transform: rotateY(180deg);
+      #extensionName {
+        color: ${() => shared.themeMainColor};
+        cursor: pointer;
+        width: 118px;
+        margin-left: -20px;
+        height: 64px;
+        display: block;
+      }
+    }
+  }
+  &:hover {
+    .extensionBrief {
+      .extensionIcon,
+      .nameFront {
+        transform: rotateY(180deg);
+      }
+      .extensionInfo {
+        transform: rotateY(0deg);
+      }
+    }
+  }
+  ${(props) =>
     props.disabled &&
     css`
       .extensionIcon {
         filter: grayscale(100%);
       }
     `};
-	${(props) =>
+  ${(props) =>
     props.withControl &&
     css`
       .extensionControl {
@@ -96,7 +100,7 @@ const ExtensionBriefDiv = styled.div`
         }
       }
     `}
-	${(props) =>
+  ${(props) =>
     (props.selected == true || props.selected == false) &&
     css`
       box-shadow: none !important;
@@ -362,7 +366,7 @@ class ExtensionBrief extends Component {
         {chromey}
       </div>
     );
-    let updateSubWindow = function() {};
+    let updateSubWindow = function () {};
     if (this.props.updateSubWindow) {
       updateSubWindow = this.props.updateSubWindow.bind(
         null,

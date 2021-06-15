@@ -1,8 +1,8 @@
 const initialState = {
   main: 'about',
   sub: {
-    extensions: 'manage'
-  }
+    extensions: 'manage',
+  },
 };
 
 const location = (state = initialState, action) => {

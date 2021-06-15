@@ -6,7 +6,7 @@ import {
   clearDB,
   notify,
   GL,
-  sendMessage
+  sendMessage,
 } from '../utils';
 
 export default (NooBoss) => {
@@ -153,8 +153,10 @@ export default (NooBoss) => {
                     const link =
                       app.installType === 'development'
                         ? `${app.name}`
-                        : `<a href=${'https://chrome.google.com/webstore/detail/' +
-                            app.id} target='_blank'>${app.name}</a>`;
+                        : `<a href=${
+                            'https://chrome.google.com/webstore/detail/' +
+                            app.id
+                          } target='_blank'>${app.name}</a>`;
                     return `<tr><td>${link}</td><td>${
                       app.enabled ? 'O' : 'X'
                     }</td></tr>`;
@@ -173,6 +175,6 @@ export default (NooBoss) => {
       a.click();
       notify(GL('backup'), GL('successfully_exported_extensions'), 5);
       a.remove();
-    }
+    },
   };
 };

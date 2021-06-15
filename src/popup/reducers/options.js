@@ -14,9 +14,9 @@ const initialState = {
     advanced: true,
     advancedBasics: true,
     advancedClean: true,
-    advancedBackup: true
+    advancedBackup: true,
   },
-  zoom: 1
+  zoom: 1,
 };
 
 const options = (state = initialState, action) => {

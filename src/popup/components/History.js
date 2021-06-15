@@ -5,7 +5,7 @@ import {
   sendMessage,
   GL,
   getDB,
-  generateRGBAString
+  generateRGBAString,
 } from '../../utils';
 import { Closey } from '../../icons';
 import TimeAgo from 'timeago-react';
@@ -79,7 +79,7 @@ class History extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      maxRecords: 30
+      maxRecords: 30,
     };
   }
   async componentDidMount() {

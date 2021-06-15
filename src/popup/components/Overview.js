@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
   overviewUpdateBello,
-  overviewToggleRecommendExtensions
+  overviewToggleRecommendExtensions,
 } from '../actions';
 import {
   sendMessage,
@@ -11,7 +11,7 @@ import {
   getDomainFromUrl,
   getCurrentUrl,
   ajax,
-  promisedGet
+  promisedGet,
 } from '../../utils';
 import styled from 'styled-components';
 import Selector from './Selector';
@@ -180,7 +180,7 @@ const OverviewDiv = styled.div`
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
-    overview: state.overview
+    overview: state.overview,
   };
 };
 
@@ -192,7 +192,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     toggleRecommendExtensions: () => {
       dispatch(overviewToggleRecommendExtensions());
-    }
+    },
   };
 };
 
@@ -211,7 +211,7 @@ class Overview extends Component {
       historyRemoveEvents: 0,
       historyUpdateEvents: 0,
       historyEnableEvents: 0,
-      historyDisableEvents: 0
+      historyDisableEvents: 0,
     };
     this.getExtensionInfoWeb = this.getExtensionInfoWeb.bind(this);
     this.initialize();
@@ -238,7 +238,7 @@ class Overview extends Component {
       type: 'POST',
       data: JSON.stringify({ website: currentWebsite, userId }),
       contentType: 'application/json',
-      url: 'https://ainoob.com/api/nooboss/website'
+      url: 'https://ainoob.com/api/nooboss/website',
     });
     data = JSON.parse(data);
     const recommendedExtensionList = [];
@@ -247,7 +247,7 @@ class Overview extends Component {
       recommendedExtensionList.push({
         id: extensionInfo.appId,
         tags: extensionInfo.tags,
-        votes: data.recos[extensionInfo.appId]
+        votes: data.recos[extensionInfo.appId],
       });
     }
     const tags = {};
@@ -313,13 +313,13 @@ class Overview extends Component {
       userId,
       appId: id,
       tag,
-      action
+      action,
     };
     await ajax({
       type: 'POST',
       url: 'https://ainoob.com/api/nooboss/reco/app/tag',
       contentType: 'application/json',
-      data: JSON.stringify(reco)
+      data: JSON.stringify(reco),
     });
     this.setState((prevState) => {
       prevState.tags[id] = prevState.tags[id] || {};
@@ -381,8 +381,8 @@ class Overview extends Component {
           appIds: idList,
           action,
           userId,
-          website: this.state.currentWebsite
-        })
+          website: this.state.currentWebsite,
+        }),
       });
       resolve();
     });
@@ -407,7 +407,7 @@ class Overview extends Component {
           job: 'notify',
           title: GL('recommend_extensions'),
           message: GL('x_2'),
-          duration: 5
+          duration: 5,
         });
         this.setState({ recommendExtensionList: [] });
         break;
@@ -441,7 +441,7 @@ class Overview extends Component {
         (id) => extensions[id].type == 'theme'
       ).length,
       group: groupList.length,
-      autoStateRule: autoStateRuleList.length
+      autoStateRule: autoStateRuleList.length,
     };
     const recommendedExtensionList = this.state.recommendedExtensionList
       .sort((a, b) => {
@@ -508,7 +508,7 @@ class Overview extends Component {
               <span
                 id='description'
                 dangerouslySetInnerHTML={{
-                  __html: extensionInfoWeb.description
+                  __html: extensionInfoWeb.description,
                 }}
               />
             </div>

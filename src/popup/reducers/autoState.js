@@ -4,10 +4,10 @@ const initialState = {
     ids: [],
     match: {
       isWildcard: false,
-      url: ''
+      url: '',
     },
-    disabled: false
-  }
+    disabled: false,
+  },
 };
 
 const autoState = (state = initialState, action) => {

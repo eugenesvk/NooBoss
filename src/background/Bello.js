@@ -10,7 +10,7 @@ export default (NooBoss) => {
       referrer: '',
       ua: navigator.userAgent,
       sr: screen.width + 'x' + screen.height,
-      ul: navigator.language || navigator.userLanguage
+      ul: navigator.language || navigator.userLanguage,
     },
     bello: async (obj) => {
       if (!(await promisedGet('joinCommunity'))) {
@@ -31,7 +31,7 @@ export default (NooBoss) => {
         data = {
           ...data,
           type: 'pageview',
-          ainoob: Math.random()
+          ainoob: Math.random(),
         };
         NooBoss.Bello.ajax(
           'https://ainoob.com/bello/nooboss' + NooBoss.Bello.serialize(data)
@@ -45,7 +45,7 @@ export default (NooBoss) => {
         action: obj.action,
         label: obj.label,
         value: obj.value || 0,
-        ainoob: Math.random()
+        ainoob: Math.random(),
       };
       NooBoss.Bello.ajax(
         'https://ainoob.com/bello/nooboss' + NooBoss.Bello.serialize(data)
@@ -65,12 +65,12 @@ export default (NooBoss) => {
       return (
         '?' +
         Object.keys(obj)
-          .reduce(function(a, k) {
+          .reduce(function (a, k) {
             a.push(k + '=' + encodeURIComponent(obj[k]));
             return a;
           }, [])
           .join('&')
       );
-    }
+    },
   };
 };

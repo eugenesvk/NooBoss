@@ -1,5 +1,5 @@
 const initialState = {
-  recommendExtensions: false
+  recommendExtensions: false,
 };
 
 const overview = (state = initialState, action) => {

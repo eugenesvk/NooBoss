@@ -7,13 +7,13 @@ import {
   GL,
   oldGet,
   generateRGBAString,
-  sendMessage
+  sendMessage,
 } from '../../utils';
 import { SketchPicker } from 'react-color';
 import {
   optionsUpdateThemeMainColor,
   optionsUpdateThemeSubColor,
-  optionsToggleDisplay
+  optionsToggleDisplay,
 } from '../actions';
 import styled from 'styled-components';
 import { optionsUpdateZoom } from '../actions';
@@ -165,7 +165,7 @@ const OptionsDiv = styled.div`
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
-    options: state.options
+    options: state.options,
   };
 };
 
@@ -187,7 +187,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     updateZoom: (zoom) => {
       dispatch(optionsUpdateZoom(zoom));
-    }
+    },
   };
 };
 
@@ -212,7 +212,7 @@ class Options extends Component {
       autoState: false,
       autoStateNotification: false,
       joinCommunity: false,
-      zoom: 1
+      zoom: 1,
     };
     this.listener = this.listener.bind(this);
   }
@@ -255,12 +255,12 @@ class Options extends Component {
       'notificationDuration_removal',
       'notificationDuration_stateChange',
       'joinCommunity',
-      'zoom'
+      'zoom',
     ];
     for (let i = 0; i < options.length; i++) {
       oldGet(
         options[i],
-        function(key, value) {
+        function (key, value) {
           const temp = {};
           temp[key] = value;
           this.setState(temp);
@@ -472,7 +472,7 @@ class Options extends Component {
                 onChange={(e) => {
                   const zoom = e.target.value / 100;
                   this.changeOption('zoom', {
-                    target: { value: e.target.value / 100 }
+                    target: { value: e.target.value / 100 },
                   });
                   this.props.updateZoom(zoom);
                 }}

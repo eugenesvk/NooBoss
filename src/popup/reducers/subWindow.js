@@ -1,6 +1,6 @@
 const initialState = {
   display: '',
-  id: ''
+  id: '',
 };
 
 const subWindow = (state = initialState, action) => {

@@ -133,7 +133,7 @@ const AutoStateDiv = styled.div`
 const mapStateToProps = (state, ownProps) => {
   return {
     ...ownProps,
-    autoState: state.autoState
+    autoState: state.autoState,
   };
 };
 
@@ -142,7 +142,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     ...ownProps,
     updateAutoStateRule: (rule) => {
       dispatch(updateAutoStateRule(rule));
-    }
+    },
   };
 };
 
@@ -155,9 +155,9 @@ class AutoState extends Component {
         ids: [],
         match: {
           isWildcard: false,
-          url: ''
-        }
-      }
+          url: '',
+        },
+      },
     };
   }
   getIcon(ids) {
@@ -223,16 +223,16 @@ class AutoState extends Component {
       job: 'autoStateRulesUpdate',
       rules,
       action: 'addRule',
-      id: rules.length
+      id: rules.length,
     });
     this.props.updateAutoStateRule({
       action: 'enableOnly',
       ids: [],
       match: {
         isWildcard: false,
-        url: ''
+        url: '',
       },
-      disabled: false
+      disabled: false,
     });
   }
   editRule(index) {
@@ -242,7 +242,7 @@ class AutoState extends Component {
       job: 'autoStateRulesUpdate',
       rules,
       action: 'editRule',
-      id: index
+      id: index,
     });
     this.props.updateAutoStateRule(rule);
   }
@@ -253,7 +253,7 @@ class AutoState extends Component {
       job: 'autoStateRulesUpdate',
       rules,
       action: 'deleteRule',
-      id: index
+      id: index,
     });
   }
   toggleRule(index) {
@@ -263,7 +263,7 @@ class AutoState extends Component {
       job: 'autoStateRulesUpdate',
       rules,
       action: 'toggleRule',
-      id: index
+      id: index,
     });
   }
   async setCurrentWebsite() {

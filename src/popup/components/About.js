@@ -51,7 +51,7 @@ class About extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      language: 'en'
+      language: 'en',
     };
   }
   cl(category, action, label) {
@@ -60,8 +60,8 @@ class About extends Component {
       bananana: {
         category,
         action,
-        label
-      }
+        label,
+      },
     });
   }
   render() {

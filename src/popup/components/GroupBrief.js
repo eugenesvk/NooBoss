@@ -4,81 +4,85 @@ import { sendMessage } from '../../utils';
 import styled, { css } from 'styled-components';
 
 const GroupBriefDiv = styled.div`
-	box-shadow: ${() => shared.themeMainColor} 0px 0px 0px 1px;
-	&:hover{
-		box-shadow: ${() => shared.themeMainColor} 0px 0px 13px;
-	}
-	position: relative;
-	width: 76px;
-	height: 76px;
-	padding: 20px;
-	margin-left: 1px;
-	margin-top: 1px;
-	padding: 20px;
-	float: left;
-	overflow: hidden;
-	.groupBrief{
-		margin-top: -8px;
-		width: 100%;
-		height: 100%;
-		position: relative;
-		.groupIcon, .nameFront, .groupInfo{
-			backface-visibility: hidden;
-			transition: transform 0.309s;
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
-		}
-		.groupIcon{
-			max-width: 100%;
-			max-height: 100%;
-		}
-		svg.groupIcon{
-			height: 100%;
-		}
-		#optioney{
-			display: none;
-		}
-		.nameFront{
-			top: 80px;
-			height: 20px;
-			overflow: hidden;
-			text-align: center;
-		}
-		.groupIcon, .nameFront{
-			transform: rotate(0deg);
-		}
-		.groupInfo{
-			text-align: center;
-			transform: rotateY(180deg);
-			#groupName{
-				display: block;
-				margin-top: 10px;
-				height: 71px;
-				width: 118px;
-				margin-left: -20px;
-				color: ${() => shared.themeMainColor};
-				cursor: pointer;
-			}
-			.groupControl {
-			  #switchyDisable {
-			    filter: invert(1) brightness(0.8);
-			  }
-			}
-		}
-	}
-	&:hover{
-		.groupBrief{
-			.groupIcon, .nameFront{
-				transform: rotateY(180deg);
-			}
-			.groupInfo{
-				transform: rotateY(0deg);
-			}
-		}
-	}
-	${(props) =>
+  box-shadow: ${() => shared.themeMainColor} 0px 0px 0px 1px;
+  &:hover {
+    box-shadow: ${() => shared.themeMainColor} 0px 0px 13px;
+  }
+  position: relative;
+  width: 76px;
+  height: 76px;
+  padding: 20px;
+  margin-left: 1px;
+  margin-top: 1px;
+  padding: 20px;
+  float: left;
+  overflow: hidden;
+  .groupBrief {
+    margin-top: -8px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .groupIcon,
+    .nameFront,
+    .groupInfo {
+      backface-visibility: hidden;
+      transition: transform 0.309s;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+    .groupIcon {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    svg.groupIcon {
+      height: 100%;
+    }
+    #optioney {
+      display: none;
+    }
+    .nameFront {
+      top: 80px;
+      height: 20px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .groupIcon,
+    .nameFront {
+      transform: rotate(0deg);
+    }
+    .groupInfo {
+      text-align: center;
+      transform: rotateY(180deg);
+      #groupName {
+        display: block;
+        margin-top: 10px;
+        height: 71px;
+        width: 118px;
+        margin-left: -20px;
+        color: ${() => shared.themeMainColor};
+        cursor: pointer;
+      }
+      .groupControl {
+        #switchyDisable {
+          filter: invert(1) brightness(0.8);
+        }
+      }
+    }
+  }
+  &:hover {
+    .groupBrief {
+      .groupIcon,
+      .nameFront {
+        transform: rotateY(180deg);
+      }
+      .groupInfo {
+        transform: rotateY(0deg);
+      }
+    }
+  }
+  ${(props) =>
     props.withControl &&
     css`
       .groupControl {
@@ -96,7 +100,7 @@ const GroupBriefDiv = styled.div`
         }
       }
     `}
-	${(props) =>
+  ${(props) =>
     (props.selected == true || props.selected == false) &&
     css`
       box-shadow: none !important;
@@ -276,7 +280,7 @@ const GroupBriefDiv = styled.div`
 class GroupBrief extends Component {
   render() {
     const group = this.props.group;
-    let updateSubWindow = function() {};
+    let updateSubWindow = function () {};
     if (this.props.updateSubWindow) {
       updateSubWindow = this.props.updateSubWindow.bind(
         null,

@@ -293,7 +293,7 @@ export const getSquareImg = (dataUrl) => {
     canvas.width = 128;
     const ctx = canvas.getContext('2d');
     const image = new Image();
-    image.onload = function() {
+    image.onload = function () {
       const hentai = Math.min(image.width, image.height);
       ctx.drawImage(
         image,
@@ -356,7 +356,7 @@ export const notify = (title, message, duration) => {
       iconUrl: '/images/icon_128.png',
       title,
       message,
-      requireInteraction: true
+      requireInteraction: true,
     },
     (notificationId) => {
       if (duration > 0) {
@@ -522,7 +522,7 @@ export const getLanguage = () => {
     'uk',
     'vi',
     'zh_CN',
-    'zh_TW'
+    'zh_TW',
   ];
   if (supportedLanguageList.indexOf(language) == -1) {
     language = language.split('_')[0];
@@ -548,7 +548,7 @@ export const ajax = (req) => {
       typeof req.data == 'string' || !req.data
         ? req.data
         : Object.keys(req.data)
-            .map(function(k) {
+            .map(function (k) {
               return (
                 encodeURIComponent(k) + '=' + encodeURIComponent(req.data[k])
               );
