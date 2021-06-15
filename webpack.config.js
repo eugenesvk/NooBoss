@@ -22,21 +22,21 @@ const base = {
           presets: ['@babel/preset-react', '@babel/preset-env'],
           plugins: [
             'babel-plugin-lodash',
-            'transform-object-rest-spread',
-            'transform-async-to-generator',
-            'transform-es3-property-literals',
+            '@babel/plugin-proposal-object-rest-spread',
+            '@babel/plugin-transform-async-to-generator',
+            '@babel/plugin-transform-property-literals',
             [
-              'transform-runtime',
+              '@babel/plugin-transform-runtime',
               {
                 helpers: false,
                 regenerator: true,
-                moduleName: 'babel-runtime'
-              }
-            ]
-          ]
-        }
-      }
-    ]
+                absoluteRuntime: '@babel/runtime',
+              },
+            ],
+          ],
+        },
+      },
+    ],
   },
   plugins: [
     new CopyWebpackPlugin({
