@@ -53,6 +53,7 @@ const base = {
 module.exports = (env) => {
   env = env || {};
   const isProd = env.production;
+  base.mode = isProd ? 'production' : 'development';
   if (isProd) {
     base.plugins.push(
       (optimization.minimizer = [
