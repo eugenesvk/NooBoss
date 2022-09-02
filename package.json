@@ -33,7 +33,7 @@
   "scripts": {
     "dev": "webpack -w",
     "prod": "webpack --env.production",
-    "release": "npm run checkFormat && rm -rdf dist && npm run buildLocale && npm run prod && npm run zipDist",
+    "release": "npm run checkFormat && rimraf -rdf dist && npm run buildLocale && npm run prod && npm run zipDist",
     "zipDist": "cd dist && zip -r -FS ../dist.zip *",
     "test": "echo \"Error: no test specified\" && exit 1",
     "checkFormat": "prettier --check '**/*.{js,tsx,ts,tsx}' '!dist/**'",
