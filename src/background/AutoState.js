@@ -43,10 +43,10 @@ export default (NooBoss) => {
           rules = JSON.parse(rules);
         }
         NooBoss.AutoState.rules = rules;
-        sendMessage({
-          job: 'autoStateRulesUpdated',
-          rules: NooBoss.AutoState.rules,
-        });
+        // sendMessage({
+        //   job: 'autoStateRulesUpdated',
+        //   rules: NooBoss.AutoState.rules,
+        // });
         if (rules != undefined) {
           await promisedSet('autoStateRules', rules);
         }
